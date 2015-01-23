@@ -1,18 +1,13 @@
 {
-  "name": "ElastacloudIoT",
+  "name": "tessel and keenIO",
   "version": "1.0.0",
-  "description": "Microsoft IoT Hackathon Labs",
-  "main": "AzureEventHubManager.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Andy Cross",
+  "description": "tessel transmition to keenIO",
+  "main": "test.js",
+  "author": "Tal Waserman",
   "license": "ISC",
   "dependencies": {
     "crypto": "0.0.3",
     "http": "0.0.0",
-    "keen.io": "^0.1.3",
-    "moment": "^2.9.0",
-    "wifi-cc3000": "0.0.1"
+    "keen.io": "^0.1.3"
   }
 }

@@ -7,7 +7,6 @@ var tessel = require('tessel'),
     climatelib = require('climate-si7020'),
     wifi = require('wifi-cc3000'),
     Keen = require('keen.io');
-var test_hub = require("./test_hub.js")
 
 // Configure instance. Only projectId and writeKey are required to send data.
 var client = Keen.configure({
@@ -17,8 +16,29 @@ var client = Keen.configure({
     masterKey: "BE3328F89149B52FF49321F71AA43EF9"
 });
 
-
 var climate = climatelib.use(tessel.port['A']);
+var wifiSettings = {
+    ssid: "talwaserman 2",
+    timeout: 40
+};
+
+setTimeout(function () {
+    checkConnection();
+}, 600);
+
+function checkConnection () {
+    if (wifi.isConnected()) {
+        console.log('Connected.');
+    } else {
+        console.log('Connecting...');
+        wifi.connect(wifiSettings, function (err, res) {
+            if(err) {
+                console.log('Error connecting:', err);
+            }
+            checkConnection();
+        });
+    }
+}
 
 if (wifi.isConnected())
 {
